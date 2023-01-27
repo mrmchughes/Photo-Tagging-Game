@@ -15,7 +15,7 @@ const HomePage = () => {
         </p>
         <p>
           When you've found them all, you'll get to input your name on the
-          leaderboard!
+          leaderboard! Good luck!
         </p>
       </div>
       <div className="flex place-content-center">
