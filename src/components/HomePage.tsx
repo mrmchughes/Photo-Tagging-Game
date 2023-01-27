@@ -7,8 +7,8 @@ const HomePage = () => {
       <div className="flex-col text-center mt-3.5">
         <p>Welcome to my Where's Waldo game.</p>
         <p>
-          Your goal is to find the following characters in the picture as fast
-          as possible!
+          Your goal is to find error the following characters in the picture as
+          fast as possible!
         </p>
         <p>
           When you've found a character, click on them and select their name.
