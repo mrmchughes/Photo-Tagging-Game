@@ -1,13 +1,38 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from ".//components/HomePage";
-import GamePage from ".//components/GamePage";
-import "./App.css";
+import Navbar from "./components/Navbar";
+import HomePage from "./components/HomePage";
+import GamePage from "./components/GamePage";
+import LeaderboardPage from "./components/LeaderboardPage";
+import "./styles/global.css";
 
 function App() {
   const [visible, setVisible] = useState(false);
 
-  const getClickPosition = (e) => {
+  const [charactersFound, setCharactersFound] = useState([]);
+  const [timer, setTimer] = useState();
+  const [score, setScore] = useState();
+
+  const gamePageOnClick = () => {};
+
+  const getClickPostition = () => {};
+
+  const characterChoice = () => {};
+
+  //call setCharactersFound here
+  const characterChoiceWasCorrect = () => {};
+
+  const characterChoiceWasIncorrect = () => {};
+
+  const gameEnd = () => {};
+
+  const scorePass = () => {};
+
+  const isScoreHighScore = () => {};
+
+  const gameReset = () => {};
+
+  /**const getClickPosition2 = (e) => {
     setVisible(!visible);
 
     if (visible) {
@@ -59,16 +84,16 @@ function App() {
       y: yPos,
     };
   };
+*/
 
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route
-            path="/game"
-            element={<GamePage getClickPosition={getClickPosition} />}
-          />
+          <Route path="/game" element={<GamePage />} />
+          <Route path="/leaderboard" element={<LeaderboardPage />} />
         </Routes>
       </BrowserRouter>
     </div>

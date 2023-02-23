@@ -1,26 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 //import CharacterSelectBox from "./CharacterSelectBox";
 //import charactersArray from "./charactersArray";
 
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Typography from "@mui/material/Typography";
+
 interface GamePageProps {
-  getClickPosition: () => void;
-  addCharacter: () => void;
+  //getClickPosition: () => void;
+  //addCharacter: () => void;
 }
 
-const GamePage = ({ getClickPosition, addCharacter }: GamePageProps) => {
+const GamePage = () => {
+  const [contextMenu, setContextMenu] = useState<{
+    mouseX: number;
+    mouseY: number;
+  } | null>(null);
+
+  const handleContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setContextMenu(
+      contextMenu === null
+        ? {
+            mouseX: e.clientX + 2,
+            mouseY: e.clientY - 6,
+          }
+        : null
+    );
+  };
+
+  const handleClose = () => {
+    setContextMenu(null);
+  };
+
   return (
-    <div>
-      <div className="cityLevel" id="cityLevel" onClick={getClickPosition}>
-        <div
-          id="characterSelectBox"
-          className="flex flex-col w-36 text-black text-center mt-2.5 mx-1.5 p-1.5"
-        >
-          <div
-            id="targetBoxDiv"
-            className="bg-transparent border-solid border-4 border-black rounded-md mt-2.5 mx-1.5 p-1.5 w-28 h-24"
-          ></div>
-        </div>
-      </div>
+    <div onContextMenu={handleContextMenu} style={{ cursor: "context-menu" }}>
+      <Typography>Test</Typography>
+      <Menu
+        open={contextMenu !== null}
+        onClose={handleClose}
+        anchorReference="anchorPosition"
+        anchorPosition={
+          contextMenu !== null
+            ? { top: contextMenu.mouseY, left: contextMenu.mouseX }
+            : undefined
+        }
+      >
+        <MenuItem onClick={handleClose}>Character 1</MenuItem>
+        <MenuItem onClick={handleClose}>Character 2</MenuItem>
+        <MenuItem onClick={handleClose}>Character 3</MenuItem>
+        <MenuItem onClick={handleClose}>Character 4</MenuItem>
+      </Menu>
     </div>
   );
 };
