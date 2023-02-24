@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 interface GamePageProps {
   //getClickPosition: () => void;
@@ -35,7 +36,14 @@ const GamePage = () => {
 
   return (
     <div onContextMenu={handleContextMenu} style={{ cursor: "context-menu" }}>
-      <Typography>Test</Typography>
+      <Box
+        sx={{
+          width: 1920,
+          height: 8086,
+        }}
+      >
+        <img src={require("../imgs/city.jpg")} alt="City Level" />
+      </Box>
       <Menu
         open={contextMenu !== null}
         onClose={handleClose}

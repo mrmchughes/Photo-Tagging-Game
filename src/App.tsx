@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./components/HomePage";
 import GamePage from "./components/GamePage";
 import LeaderboardPage from "./components/LeaderboardPage";
+import ErrorPage from "./components/ErrorPage";
 import "./styles/global.css";
 
 function App() {
@@ -94,6 +95,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/game" element={<GamePage />} />
           <Route path="/leaderboard" element={<LeaderboardPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </div>
