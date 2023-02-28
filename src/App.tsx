@@ -14,24 +14,54 @@ function App() {
   const [timer, setTimer] = useState();
   const [score, setScore] = useState();
 
-  const gamePageOnClick = () => {};
+  const gamePageOnClick = () => {
+    console.log("gamePageOnClick Called");
+    getClickPostition();
+    characterChoice();
+    characterChoiceWasCorrect();
+    characterChoiceWasIncorrect();
+    addCharacterToCorrectChoicesArray();
+  };
 
-  const getClickPostition = () => {};
+  const getClickPostition = () => {
+    console.log("getClickPostition Called");
+  };
 
-  const characterChoice = () => {};
+  const characterChoice = () => {
+    console.log("characterChoice Called");
+  };
 
   //call setCharactersFound here
-  const characterChoiceWasCorrect = () => {};
+  const characterChoiceWasCorrect = () => {
+    console.log("characterChoiceWasCorrect Called");
+  };
 
-  const characterChoiceWasIncorrect = () => {};
+  const characterChoiceWasIncorrect = () => {
+    console.log("characterChoiceWasIncorrect Called");
+  };
 
-  const gameEnd = () => {};
+  const addCharacterToCorrectChoicesArray = () => {
+    console.log("addCharacterToCorrectChoicesArray Called");
+  };
 
-  const scorePass = () => {};
+  const gameEnd = () => {
+    console.log("gameEnd Called");
+    scorePass();
+    isScoreHighScore();
+    gameReset();
+  };
 
-  const isScoreHighScore = () => {};
+  const scorePass = () => {
+    console.log("scorePass Called");
+  };
 
-  const gameReset = () => {};
+  const isScoreHighScore = () => {
+    console.log("isScoreHighScore Called");
+  };
+
+  const gameReset = () => {
+    console.log("gameReset called");
+  };
 
   /**const getClickPosition2 = (e) => {
     setVisible(!visible);
@@ -90,10 +120,15 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar gameReset={gameReset} />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/game" element={<GamePage />} />
+          <Route
+            path="/game"
+            element={
+              <GamePage gameEnd={gameEnd} gamePageOnClick={gamePageOnClick} />
+            }
+          />
           <Route path="/leaderboard" element={<LeaderboardPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>

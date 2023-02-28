@@ -8,11 +8,11 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 interface GamePageProps {
-  //getClickPosition: () => void;
-  //addCharacter: () => void;
+  gameEnd: () => void;
+  gamePageOnClick: () => void;
 }
 
-const GamePage = () => {
+const GamePage = ({ gameEnd, gamePageOnClick }: GamePageProps) => {
   const [contextMenu, setContextMenu] = useState<{
     mouseX: number;
     mouseY: number;
@@ -20,6 +20,7 @@ const GamePage = () => {
 
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault();
+    gamePageOnClick();
     setContextMenu(
       contextMenu === null
         ? {
@@ -35,7 +36,7 @@ const GamePage = () => {
   };
 
   return (
-    <div onContextMenu={handleContextMenu} style={{ cursor: "context-menu" }}>
+    <div onClick={handleContextMenu} style={{ cursor: "context-menu" }}>
       <Box
         sx={{
           width: 1920,
@@ -54,10 +55,10 @@ const GamePage = () => {
             : undefined
         }
       >
-        <MenuItem onClick={handleClose}>Character 1</MenuItem>
-        <MenuItem onClick={handleClose}>Character 2</MenuItem>
-        <MenuItem onClick={handleClose}>Character 3</MenuItem>
-        <MenuItem onClick={handleClose}>Character 4</MenuItem>
+        <MenuItem onClick={handleClose}>Steven Universe</MenuItem>
+        <MenuItem onClick={handleClose}>Edward Elric</MenuItem>
+        <MenuItem onClick={handleClose}>Predator</MenuItem>
+        <MenuItem onClick={handleClose}>John McClane</MenuItem>
       </Menu>
     </div>
   );

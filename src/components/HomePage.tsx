@@ -1,27 +1,58 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
+import Box from "@mui/material/Box";
+import { Typography, Button } from "@mui/material";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col border-solid border-black border">
-      <div className="flex-col text-center mt-3.5">
-        <p>Welcome to my Where's Waldo game.</p>
-        <p>
+    <Box>
+      <Box>
+        <Typography
+          sx={{
+            flexGrow: 1,
+            textAlign: "center",
+          }}
+        >
+          Welcome to my Where's Waldo game.
+        </Typography>
+        <Typography
+          sx={{
+            flexGrow: 1,
+            textAlign: "center",
+          }}
+        >
           Your goal is to find error the following characters in the picture as
           fast as possible!
-        </p>
-        <p>
+        </Typography>
+        <Typography
+          sx={{
+            flexGrow: 1,
+            textAlign: "center",
+          }}
+        >
           When you've found a character, click on them and select their name.
-        </p>
-        <p>
+        </Typography>
+        <Typography
+          sx={{
+            flexGrow: 1,
+            textAlign: "center",
+          }}
+        >
           When you've found them all, you'll get to input your name on the
           leaderboard! Good luck!
-        </p>
-      </div>
-      <div className="flex place-content-center">
-        <Link to="/game">Start!</Link>
-      </div>
-    </div>
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          flexGrow: 1,
+          textAlign: "center",
+        }}
+      >
+        <Button variant="contained" component={RouterLink} to={`game`}>
+          Start!
+        </Button>
+      </Box>
+    </Box>
   );
 };
 
