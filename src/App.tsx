@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage";
 import GamePage from "./components/GamePage";
 import LeaderboardPage from "./components/LeaderboardPage";
 import ErrorPage from "./components/ErrorPage";
+import { db } from "./firebase";
 import "./styles/global.css";
 
 function App() {
